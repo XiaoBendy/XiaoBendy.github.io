@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: JavaIO java | XiaoBendy</title>
+  <title>Java常用API | XiaoBendy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XiaoBendy">
-<meta property="og:url" content="http://example.com/tags/JavaIO-java/index.html">
+  <meta name="description" content="Java常用APIDate类构造方法： public Date(); public Date(long date);        参数是从1970年01月01日零分以来的毫秒数 普通方法： public long getTime(); public void setTime(long time); DataFormat类DateFormat是日期&#x2F;时间格式化子类的抽象类，他以与语言无关的方式格式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java常用API">
+<meta property="og:url" content="http://example.com/2021/02/27/Java%E5%B8%B8%E7%94%A8API/index.html">
 <meta property="og:site_name" content="XiaoBendy">
+<meta property="og:description" content="Java常用APIDate类构造方法： public Date(); public Date(long date);        参数是从1970年01月01日零分以来的毫秒数 普通方法： public long getTime(); public void setTime(long time); DataFormat类DateFormat是日期&#x2F;时间格式化子类的抽象类，他以与语言无关的方式格式">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-27T10:56:53.000Z">
+<meta property="article:modified_time" content="2021-02-28T10:48:44.601Z">
 <meta property="article:author" content="XiaoBendy">
+<meta property="article:tag" content="JavaAPI 正则表达式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="XiaoBendy" type="application/atom+xml">
@@ -162,48 +167,741 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java常用API" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/25/JavaIO/" class="archive-article-date">
-  	<time datetime="2021-02-25T06:37:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/25/JavaIO/">JavaIO</a>
+    <h1 class="article-title" itemprop="name">
+      Java常用API
     </h1>
   
 
-        <div class="article-info info-on-right">
+        
+        <a href="/2021/02/27/Java%E5%B8%B8%E7%94%A8API/" class="archive-article-date">
+  	<time datetime="2021-02-27T10:56:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
           
+            <h1 id="Java常用API"><a href="#Java常用API" class="headerlink" title="Java常用API"></a>Java常用API</h1><h2 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h2><p>构造方法：</p>
+<p>public Date();</p>
+<p>public Date(long date);        参数是从1970年01月01日零分以来的毫秒数</p>
+<p>普通方法：</p>
+<p>public long getTime();</p>
+<p>public void setTime(long time);</p>
+<h2 id="DataFormat类"><a href="#DataFormat类" class="headerlink" title="DataFormat类"></a>DataFormat类</h2><p>DateFormat是日期/时间格式化子类的抽象类，他以与语言无关的方式格式化病解析日期或时间</p>
+<p>日期/时间格式化子类（如SimpleDateFormat类）允许进行格式化，解析和标准化。</p>
+<p>下面代码实例完成了日期的格式化和解析：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateFormatDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//日期对象转化为日期字符串</span></span><br><span class="line">        String rule=<span class="string">&quot;yyyy年MM月dd日 HH:mm:ss&quot;</span>;</span><br><span class="line"></span><br><span class="line">        DateFormat format=<span class="keyword">new</span> SimpleDateFormat(rule);</span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line"></span><br><span class="line">        String StrDate=format.format(date);</span><br><span class="line">        System.out.println(StrDate);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//日期字符串转化为日期对象</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Date parseDate = format.parse(StrDate);</span><br><span class="line">            System.out.println(parseDate);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Calendar类"><a href="#Calendar类" class="headerlink" title="Calendar类"></a>Calendar类</h2><p>public static Calendar getInstance();        获取日历类的子类对象</p>
+<p>public int get(int field);        获取时间字段值,可以获取日历的年月日   值得注意的是，这里获取的月是从0月开始的，按照中国人的习惯应该加一</p>
+<p>public final void set(int year,int month,int date);        这里月份按照我们的习惯应该在相应的月份减一</p>
+<p>public final Date getTime();            获取该日历对象转成日期对象</p>
+<p>代码实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalendarDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Calendar rightNow = Calendar.getInstance();</span><br><span class="line">        System.out.println(rightNow);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Calendar转为Date对象</span></span><br><span class="line">        Date time=rightNow.getTime();</span><br><span class="line">        System.out.println(time);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取属性值</span></span><br><span class="line">        <span class="keyword">int</span> year=rightNow.get(Calendar.YEAR);</span><br><span class="line">        System.out.println(<span class="string">&quot;年份：&quot;</span>+year);;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> month=rightNow.get(Calendar.MONTH)+<span class="number">1</span>;       <span class="comment">//这里月份是从0开始的  所以需要加上 1</span></span><br><span class="line">        System.out.println(<span class="string">&quot;月份：&quot;</span>+month);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> day=rightNow.get(Calendar.DAY_OF_MONTH);</span><br><span class="line">        System.out.println(<span class="string">&quot;日：&quot;</span>+day);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置年月日</span></span><br><span class="line">        rightNow.set(<span class="number">2021</span>,<span class="number">2</span>-<span class="number">1</span>,<span class="number">27</span>);  <span class="comment">//2021年2月27日</span></span><br><span class="line">        System.out.println(rightNow);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h2><p>public static int abs(int a);        返回参数a的绝对值</p>
+<p>public static double ceil(double a)        返回大于等于a的最小整数 返回该整数的小数形式</p>
+<p>public static double floor(double a)        返回小于等于a的最大整数</p>
+<p>public static long round(double a)        对参数a四舍五入，返回四舍五入后的值</p>
+<p>public static double pow(double a,double b)        求a的b次幂   返回double形式</p>
+<h2 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h2><p>public static void exit(int status)        操作系统终止该Java程序  0代表正常结束</p>
+<p>public static void gc()        暗示Java虚拟机回收不适用的垃圾</p>
+<blockquote>
+<p>public static String getProperty(String key);        获取关于Java的系统属性，如Java版本，Java的vendor，操作系统版本等等。</p>
+<p>“os.name”         获取系统的名称</p>
+<p>“os.arch”            获取操作系统的架构</p>
+<p>“java.home”        获取JRE的目录</p>
+<p>“user.dir”            获取当前的工作目录</p>
+<p>“user.home”        获取用户的主目录</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SystemDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;os.name&quot;</span>));</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;os.arch&quot;</span>));</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;os.version&quot;</span>));</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;user.home&quot;</span>));</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;user.dir&quot;</span>));</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;java.home&quot;</span>));</span><br><span class="line"></span><br><span class="line">        System.exit(<span class="number">0</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;后面的代码&quot;</span>);        <span class="comment">//这里不会被执行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<blockquote>
+<p>Windows 10<br>amd64<br>10.0<br>C:\Users\LENOVO<br>E:\Java Pro<br>D:\Environment\Java\jdk1.8.0_281\jre</p>
+</blockquote>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>如果需要更加详细的了解正则表达式可以阅读这篇文章<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xyou/p/7427779.html">https://www.cnblogs.com/xyou/p/7427779.html</a></p>
+<p>正则表达式是一个强大的字符串处理工具，可以对字符串进行查找，提取，分割，替换等操作，是一种可以用于模式匹配和替换的规范。正则表达式用以查找文字主体时待匹配的一个或多个字符串。</p>
+<p>String类里也提供了如下几个特殊的方法：</p>
+<p>boolean matches(String regex)        判断该字符串是否匹配指定的正则表达式</p>
+<p>String replaceAll(String regex,String replacement)        将该字符串中所有匹配regex的子串替换成replacement</p>
+<p>String replaceFirst(String regex,String replacement)        将该字符串中第一个匹配regex的子串替换成replacement</p>
+<p>String[] split(String regexg)        以regex作为分隔符，把该字符串分割成多个子串</p>
+<p>上面这些特殊的方法都依赖与Java提供的正则表达式支持，除此之外，Java还提供了Pattern和Matcher两个类专门用于提供正则表达式支持。</p>
+<h3 id="正则表达式支持的字符"><a href="#正则表达式支持的字符" class="headerlink" title="正则表达式支持的字符"></a>正则表达式支持的字符</h3><p>创建正则表达式就是创建一个特殊的字符串。</p>
+<p>正则表达式所支持的合法字符如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th align="center">字符</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">X</td>
+<td align="center">字符x(x可以是任何合法的字符)</td>
+</tr>
+<tr>
+<td align="center">\0mnn</td>
+<td align="center">八进制0mnn所表示的字符</td>
+</tr>
+<tr>
+<td align="center">\xhh</td>
+<td align="center">十六进制值0x所表示的字符</td>
+</tr>
+<tr>
+<td align="center">\uhhhh</td>
+<td align="center">十六进制值0xhhhh所表示的Unicode字符</td>
+</tr>
+<tr>
+<td align="center">\t</td>
+<td align="center">制表符(“\u0009”)</td>
+</tr>
+<tr>
+<td align="center">\n</td>
+<td align="center">换行符(“u000A”)</td>
+</tr>
+<tr>
+<td align="center">\r</td>
+<td align="center">回车符(“\u000D”)</td>
+</tr>
+<tr>
+<td align="center">\f</td>
+<td align="center">换页符(“\u000C”)</td>
+</tr>
+<tr>
+<td align="center">\a</td>
+<td align="center">报警符(“\u0007”)</td>
+</tr>
+<tr>
+<td align="center">\e</td>
+<td align="center">Escape符(“\u001B”)</td>
+</tr>
+<tr>
+<td align="center">\cx</td>
+<td align="center">x对应的控制符。例如，\cM匹配Ctrl-M。x值必须为A<del>Z或a</del>z之一</td>
+</tr>
+</tbody></table>
+<p>除上面符号外，正则表达式中有一些特殊字符，这些特殊字符在正则表达式中有特殊的用途，比如前面的反斜杠\。如果需要匹配这些特殊字符，就必须首先将这些字符转义，也就是在前面加上反斜杠\。</p>
+<p>正则表达式中的特殊字符如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th align="center">特殊字符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$</td>
+<td align="center">匹配一行的结尾。要匹配$自身，要使用$</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">匹配一行的开头。要匹配^字符自身，要使用^，下面特殊字符都是如此要匹配自身需要在前面加上反斜杠</td>
+</tr>
+<tr>
+<td align="center">()</td>
+<td align="center">标记子表达式的开始和结束</td>
+</tr>
+<tr>
+<td align="center">[]</td>
+<td align="center">用于确定中括号表达式的开始和结束位置</td>
+</tr>
+<tr>
+<td align="center">{}</td>
+<td align="center">用于表示前面子表达式的出现频度</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">指定前面子表达式可以出现零次或多次</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">指定前面子表达式可以出现一次或多次</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="center">指定前面子表达式可以出现零次或一次</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">匹配出换行符\n以外的任意的单个字符</td>
+</tr>
+<tr>
+<td align="center">\</td>
+<td align="center">用于转义下一个字符，或指定八进制，十六进制</td>
+</tr>
+<tr>
+<td align="center">|</td>
+<td align="center">指定两项之间任选一项</td>
+</tr>
+</tbody></table>
+<p>下面是几个正则表达式的例子：</p>
+<blockquote>
+<p>“\u0041\\\\“        匹配  A\</p>
+<p>“\u0061\t”        匹配 a&lt;制表符&gt;</p>
+<p>“\\?\\[“            匹配 ?[</p>
+</blockquote>
+<p><strong><em>注意：为什么第一个正则表达式中有那么多反斜杠？ 这是因为Java字符串中反斜杠本身需要转义，因此两个反斜杠相当于一个</em></strong></p>
+<p>上面的正则表达式依然只能匹配单个字符，这是因为还未在正则表达式中使用“通配符”，通配符是可以匹配多个字符的特殊符号。正则表达式中的通配符远远超出通配符的功能，他被称为预定义字符，正则表达式支持如下表所示的预定义字符。</p>
+<table>
+<thead>
+<tr>
+<th align="center">预定义字符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.</td>
+<td align="center">可以匹配任何字符</td>
+</tr>
+<tr>
+<td align="center">\d</td>
+<td align="center">匹配0~9的所有数字</td>
+</tr>
+<tr>
+<td align="center">\D</td>
+<td align="center">匹配非数字</td>
+</tr>
+<tr>
+<td align="center">\s</td>
+<td align="center">匹配所有的空白字符，包括空格，制表符，回车符，换页符，换行符等</td>
+</tr>
+<tr>
+<td align="center">\S</td>
+<td align="center">匹配所有的非空白字符</td>
+</tr>
+<tr>
+<td align="center">\w</td>
+<td align="center">匹配所有的单词字符，包括0~9所有数字，26个英文字母和下划线</td>
+</tr>
+<tr>
+<td align="center">\W</td>
+<td align="center">匹配所有的非单词字符</td>
+</tr>
+</tbody></table>
+<p>上面的七个预定义字符其实非常容易记忆，其中：</p>
+<ul>
+<li>d是digit的意思，代表数字</li>
+<li>s是space的意思，代表空白</li>
+<li>w是word的意思，代表单词</li>
+<li>d,s,w的大写形式恰好匹配与之相反的字符</li>
+</ul>
+<p>有了上面的预定义字符后，接下来就可以创建强大的正则表达式了。例如：</p>
+<blockquote>
+<p>c\\wt        可以匹配cat,cbt,cct,c0t,c1t等等一批字符</p>
+<p>\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d        可以匹配如 nnn-nnn-nnnn形式的电话号码   n是0~9的数字</p>
+</blockquote>
+<p>在一些特殊情况下，例如，若只想匹配 a~f 的字母，或者匹配除 ab 之外的所有小写字母，或者匹配中文字符，上面这些预定义字符就无能为力了，此时就需要使用方括号表达式，方括号表达式有如下表所示的几种形式。</p>
+<table>
+<thead>
+<tr>
+<th align="center">方括号表达式</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">表示枚举</td>
+<td align="center">例如[abc]表示a,b,c其中任意一个字符；[gz]表示其中任意一个字符</td>
+</tr>
+<tr>
+<td align="center">表示范围：-</td>
+<td align="center">例如[a-f]表示a~f范围内的任意字符；[\\u0041-\\u0056]表示十六进制字符\u0041到\u0056范围内的任意字符</td>
+</tr>
+<tr>
+<td align="center">表示就否：^</td>
+<td align="center">例如[^abc]表示非a,b,c的任意字符；[^a-f]表示不是a~f范围内的任意字符</td>
+</tr>
+<tr>
+<td align="center">表示‘与’运算：&amp;&amp;</td>
+<td align="center">例如[a-z&amp;&amp;[def]]是a~z和[def]的交集，表示d,e,f中任意一个字符</td>
+</tr>
+<tr>
+<td align="center">表示‘并’运算</td>
+<td align="center">并运算与前面的枚举类似。例如[a-d[m-p]]表示[a-dm-p]</td>
+</tr>
+</tbody></table>
+<p>正则表达式还支持圆括号，用于将多个表达式组成一个子表达式，圆括号中可以使用或运算符<code>|</code>。例如，正则表达式“((public)|(protected)|(private))”用于匹配 Java 的三个访问控制符其中之一。</p>
+<p>除此之外，Java 正则表达式还支持如下表所示的几个边界匹配符。</p>
+<table>
+<thead>
+<tr>
+<th align="center">边界匹配符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">^</td>
+<td align="center">行的开头</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center">行的结尾</td>
+</tr>
+<tr>
+<td align="center">\b</td>
+<td align="center">单词的边界</td>
+</tr>
+<tr>
+<td align="center">\B</td>
+<td align="center">非单词的边界</td>
+</tr>
+<tr>
+<td align="center">\A</td>
+<td align="center">输入的开头</td>
+</tr>
+<tr>
+<td align="center">\G</td>
+<td align="center">前一个匹配的结尾</td>
+</tr>
+<tr>
+<td align="center">\Z</td>
+<td align="center">输入的结尾，仅用于最后的结束符</td>
+</tr>
+<tr>
+<td align="center">\z</td>
+<td align="center">输入的结尾</td>
+</tr>
+</tbody></table>
+<p>前面例子中需要建立一个匹配 000-000-0000 形式的电话号码时，使用了 \d\d\d-\d\d\d-\d\d\d\d 正则表达式，这看起来比较烦琐。实际上，正则表达式还提供了数量标识符，正则表达式支持的数量标识符有如下几种模式。</p>
+<ul>
+<li>Greedy（贪婪模式）：**<em>数量表示符默认采用贪婪模式**</em>，除非另有表示。贪婪模式的表达式会一直匹配下去，直到无法匹配为止。如果你发现表达式匹配的结果与预期的不符，很有可能是因为你以为表达式只会匹配前面几个字符，而实际上它是贪婪模式，所以会一直匹配下去。</li>
+<li>Reluctant（勉强模式）：用问号后缀（?）表示，它只会匹配最少的字符。也称为最小匹配模式。</li>
+<li>Possessive（占有模式）：用加号后缀（+）表示，目前只有 Java 支持占有模式，通常比较少用。</li>
+</ul>
+<p>三种模式的数量表示符如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th align="center">贪婪模式</th>
+<th align="center">勉强模式</th>
+<th align="center">占用模式</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">X?</td>
+<td align="center">X??</td>
+<td align="center">X?+</td>
+<td align="center">X表达式出现零次或一次</td>
+</tr>
+<tr>
+<td align="center">X*</td>
+<td align="center">X*?</td>
+<td align="center">X*+</td>
+<td align="center">X表达式出现零次或多次</td>
+</tr>
+<tr>
+<td align="center">X+</td>
+<td align="center">X+?</td>
+<td align="center">X++</td>
+<td align="center">X表达式出现一次或多次</td>
+</tr>
+<tr>
+<td align="center">X{n}</td>
+<td align="center">X{n}?</td>
+<td align="center">X{n}+</td>
+<td align="center">X表达式出现n次</td>
+</tr>
+<tr>
+<td align="center">X{n,}</td>
+<td align="center">X{n,}?</td>
+<td align="center">X{n,}+</td>
+<td align="center">X表达式最少出现n次</td>
+</tr>
+<tr>
+<td align="center">X{n,m}</td>
+<td align="center">X{n,m}?</td>
+<td align="center">X{n,m}+</td>
+<td align="center">X表达式最少出现n次最多出现m次</td>
+</tr>
+</tbody></table>
+<p>下面的代码是关于贪婪模式和勉强模式的对比：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str=<span class="string">&quot;hello,world!&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//贪婪模式下的正则表达式</span></span><br><span class="line">        System.out.println(str.replaceFirst(<span class="string">&quot;\\w*&quot;</span>,<span class="string">&quot;#&quot;</span>));   <span class="comment">//输出  #,world!</span></span><br><span class="line">        <span class="comment">//  &quot;\\w+&quot;  两个斜杠是因为Java中\斜杠也需要转义</span></span><br><span class="line">        <span class="comment">//勉强模式的正则表达式</span></span><br><span class="line">        System.out.println(str.replaceFirst(<span class="string">&quot;\\w*?&quot;</span>,<span class="string">&quot;#&quot;</span>));   <span class="comment">//输出  #hello,world!</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      <!-- 
+        <h1 id="Java常用API"><a href="#Java常用API" class="headerlink" title="Java常用API"></a>Java常用API</h1><h2 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h2><p>构造方法：</p>
+<p>public Date();</p>
+<p>public Date(long date);        参数是从1970年01月01日零分以来的毫秒数</p>
+<p>普通方法：</p>
+<p>public long getTime();</p>
+<p>public void setTime(long time);</p>
+<h2 id="DataFormat类"><a href="#DataFormat类" class="headerlink" title="DataFormat类"></a>DataFormat类</h2><p>DateFormat是日期/时间格式化子类的抽象类，他以与语言无关的方式格式化病解析日期或时间</p>
+<p>日期/时间格式化子类（如SimpleDateFormat类）允许进行格式化，解析和标准化。</p>
+<p>下面代码实例完成了日期的格式化和解析：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateFormatDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//日期对象转化为日期字符串</span></span><br><span class="line">        String rule=<span class="string">&quot;yyyy年MM月dd日 HH:mm:ss&quot;</span>;</span><br><span class="line"></span><br><span class="line">        DateFormat format=<span class="keyword">new</span> SimpleDateFormat(rule);</span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line"></span><br><span class="line">        String StrDate=format.format(date);</span><br><span class="line">        System.out.println(StrDate);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//日期字符串转化为日期对象</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Date parseDate = format.parse(StrDate);</span><br><span class="line">            System.out.println(parseDate);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Calendar类"><a href="#Calendar类" class="headerlink" title="Calendar类"></a>Calendar类</h2><p>public static Calendar getInstance();        获取日历类的子类对象</p>
+<p>public int get(int field);        获取时间字段值,可以获取日历的年月日   值得注意的是，这里获取的月是从0月开始的，按照中国人的习惯应该加一</p>
+<p>public final void set(int year,int month,int date);        这里月份按照我们的习惯应该在相应的月份减一</p>
+<p>public final Date getTime();            获取该日历对象转成日期对象</p>
+<p>代码实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalendarDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Calendar rightNow = Calendar.getInstance();</span><br><span class="line">        System.out.println(rightNow);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Calendar转为Date对象</span></span><br><span class="line">        Date time=rightNow.getTime();</span><br><span class="line">        System.out.println(time);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取属性值</span></span><br><span class="line">        <span class="keyword">int</span> year=rightNow.get(Calendar.YEAR);</span><br><span class="line">        System.out.println(<span class="string">&quot;年份：&quot;</span>+year);;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> month=rightNow.get(Calendar.MONTH)+<span class="number">1</span>;       <span class="comment">//这里月份是从0开始的  所以需要加上 1</span></span><br><span class="line">        System.out.println(<span class="string">&quot;月份：&quot;</span>+month);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> day=rightNow.get(Calendar.DAY_OF_MONTH);</span><br><span class="line">        System.out.println(<span class="string">&quot;日：&quot;</span>+day);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置年月日</span></span><br><span class="line">        rightNow.set(<span class="number">2021</span>,<span class="number">2</span>-<span class="number">1</span>,<span class="number">27</span>);  <span class="comment">//2021年2月27日</span></span><br><span class="line">        System.out.println(rightNow);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h2><p>public static int abs(int a);        返回参数a的绝对值</p>
+<p>public static double ceil(double a)        返回大于等于a的最小整数 返回该整数的小数形式</p>
+<p>public static double floor(double a)        返回小于等于a的最大整数</p>
+<p>public static long round(double a)        对参数a四舍五入，返回四舍五入后的值</p>
+<p>public static double pow(double a,double b)        求a的b次幂   返回double形式</p>
+<h2 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h2><p>public static void exit(int status)        操作系统终止该Java程序  0代表正常结束</p>
+<p>public static void gc()        暗示Java虚拟机回收不适用的垃圾</p>
+<blockquote>
+<p>public static String getProperty(String key);        获取关于Java的系统属性，如Java版本，Java的vendor，操作系统版本等等。</p>
+<p>“os.name”         获取系统的名称</p>
+<p>“os.arch”            获取操作系统的架构</p>
+<p>“java.home”        获取JRE的目录</p>
+<p>“user.dir”            获取当前的工作目录</p>
+<p>“user.home”        获取用户的主目录</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SystemDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;os.name&quot;</span>));</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;os.arch&quot;</span>));</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;os.version&quot;</span>));</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;user.home&quot;</span>));</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;user.dir&quot;</span>));</span><br><span class="line">        System.out.println(System.getProperty(<span class="string">&quot;java.home&quot;</span>));</span><br><span class="line"></span><br><span class="line">        System.exit(<span class="number">0</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;后面的代码&quot;</span>);        <span class="comment">//这里不会被执行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<blockquote>
+<p>Windows 10<br>amd64<br>10.0<br>C:\Users\LENOVO<br>E:\Java Pro<br>D:\Environment\Java\jdk1.8.0_281\jre</p>
+</blockquote>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>如果需要更加详细的了解正则表达式可以阅读这篇文章<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xyou/p/7427779.html">https://www.cnblogs.com/xyou/p/7427779.html</a></p>
+<p>正则表达式是一个强大的字符串处理工具，可以对字符串进行查找，提取，分割，替换等操作，是一种可以用于模式匹配和替换的规范。正则表达式用以查找文字主体时待匹配的一个或多个字符串。</p>
+<p>String类里也提供了如下几个特殊的方法：</p>
+<p>boolean matches(String regex)        判断该字符串是否匹配指定的正则表达式</p>
+<p>String replaceAll(String regex,String replacement)        将该字符串中所有匹配regex的子串替换成replacement</p>
+<p>String replaceFirst(String regex,String replacement)        将该字符串中第一个匹配regex的子串替换成replacement</p>
+<p>String[] split(String regexg)        以regex作为分隔符，把该字符串分割成多个子串</p>
+<p>上面这些特殊的方法都依赖与Java提供的正则表达式支持，除此之外，Java还提供了Pattern和Matcher两个类专门用于提供正则表达式支持。</p>
+<h3 id="正则表达式支持的字符"><a href="#正则表达式支持的字符" class="headerlink" title="正则表达式支持的字符"></a>正则表达式支持的字符</h3><p>创建正则表达式就是创建一个特殊的字符串。</p>
+<p>正则表达式所支持的合法字符如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th align="center">字符</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">X</td>
+<td align="center">字符x(x可以是任何合法的字符)</td>
+</tr>
+<tr>
+<td align="center">\0mnn</td>
+<td align="center">八进制0mnn所表示的字符</td>
+</tr>
+<tr>
+<td align="center">\xhh</td>
+<td align="center">十六进制值0x所表示的字符</td>
+</tr>
+<tr>
+<td align="center">\uhhhh</td>
+<td align="center">十六进制值0xhhhh所表示的Unicode字符</td>
+</tr>
+<tr>
+<td align="center">\t</td>
+<td align="center">制表符(“\u0009”)</td>
+</tr>
+<tr>
+<td align="center">\n</td>
+<td align="center">换行符(“u000A”)</td>
+</tr>
+<tr>
+<td align="center">\r</td>
+<td align="center">回车符(“\u000D”)</td>
+</tr>
+<tr>
+<td align="center">\f</td>
+<td align="center">换页符(“\u000C”)</td>
+</tr>
+<tr>
+<td align="center">\a</td>
+<td align="center">报警符(“\u0007”)</td>
+</tr>
+<tr>
+<td align="center">\e</td>
+<td align="center">Escape符(“\u001B”)</td>
+</tr>
+<tr>
+<td align="center">\cx</td>
+<td align="center">x对应的控制符。例如，\cM匹配Ctrl-M。x值必须为A<del>Z或a</del>z之一</td>
+</tr>
+</tbody></table>
+<p>除上面符号外，正则表达式中有一些特殊字符，这些特殊字符在正则表达式中有特殊的用途，比如前面的反斜杠\。如果需要匹配这些特殊字符，就必须首先将这些字符转义，也就是在前面加上反斜杠\。</p>
+<p>正则表达式中的特殊字符如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th align="center">特殊字符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$</td>
+<td align="center">匹配一行的结尾。要匹配$自身，要使用$</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">匹配一行的开头。要匹配^字符自身，要使用^，下面特殊字符都是如此要匹配自身需要在前面加上反斜杠</td>
+</tr>
+<tr>
+<td align="center">()</td>
+<td align="center">标记子表达式的开始和结束</td>
+</tr>
+<tr>
+<td align="center">[]</td>
+<td align="center">用于确定中括号表达式的开始和结束位置</td>
+</tr>
+<tr>
+<td align="center">{}</td>
+<td align="center">用于表示前面子表达式的出现频度</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">指定前面子表达式可以出现零次或多次</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">指定前面子表达式可以出现一次或多次</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="center">指定前面子表达式可以出现零次或一次</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">匹配出换行符\n以外的任意的单个字符</td>
+</tr>
+<tr>
+<td align="center">\</td>
+<td align="center">用于转义下一个字符，或指定八进制，十六进制</td>
+</tr>
+<tr>
+<td align="center">|</td>
+<td align="center">指定两项之间任选一项</td>
+</tr>
+</tbody></table>
+<p>下面是几个正则表达式的例子：</p>
+<blockquote>
+<p>“\u0041\\\\“        匹配  A\</p>
+<p>“\u0061\t”        匹配 a&lt;制表符&gt;</p>
+<p>“\\?\\[“            匹配 ?[</p>
+</blockquote>
+<p><strong><em>注意：为什么第一个正则表达式中有那么多反斜杠？ 这是因为Java字符串中反斜杠本身需要转义，因此两个反斜杠相当于一个</em></strong></p>
+<p>上面的正则表达式依然只能匹配单个字符，这是因为还未在正则表达式中使用“通配符”，通配符是可以匹配多个字符的特殊符号。正则表达式中的通配符远远超出通配符的功能，他被称为预定义字符，正则表达式支持如下表所示的预定义字符。</p>
+<table>
+<thead>
+<tr>
+<th align="center">预定义字符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.</td>
+<td align="center">可以匹配任何字符</td>
+</tr>
+<tr>
+<td align="center">\d</td>
+<td align="center">匹配0~9的所有数字</td>
+</tr>
+<tr>
+<td align="center">\D</td>
+<td align="center">匹配非数字</td>
+</tr>
+<tr>
+<td align="center">\s</td>
+<td align="center">匹配所有的空白字符，包括空格，制表符，回车符，换页符，换行符等</td>
+</tr>
+<tr>
+<td align="center">\S</td>
+<td align="center">匹配所有的非空白字符</td>
+</tr>
+<tr>
+<td align="center">\w</td>
+<td align="center">匹配所有的单词字符，包括0~9所有数字，26个英文字母和下划线</td>
+</tr>
+<tr>
+<td align="center">\W</td>
+<td align="center">匹配所有的非单词字符</td>
+</tr>
+</tbody></table>
+<p>上面的七个预定义字符其实非常容易记忆，其中：</p>
+<ul>
+<li>d是digit的意思，代表数字</li>
+<li>s是space的意思，代表空白</li>
+<li>w是word的意思，代表单词</li>
+<li>d,s,w的大写形式恰好匹配与之相反的字符</li>
+</ul>
+<p>有了上面的预定义字符后，接下来就可以创建强大的正则表达式了。例如：</p>
+<blockquote>
+<p>c\\wt        可以匹配cat,cbt,cct,c0t,c1t等等一批字符</p>
+<p>\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d        可以匹配如 nnn-nnn-nnnn形式的电话号码   n是0~9的数字</p>
+</blockquote>
+<p>在一些特殊情况下，例如，若只想匹配 a~f 的字母，或者匹配除 ab 之外的所有小写字母，或者匹配中文字符，上面这些预定义字符就无能为力了，此时就需要使用方括号表达式，方括号表达式有如下表所示的几种形式。</p>
+<table>
+<thead>
+<tr>
+<th align="center">方括号表达式</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">表示枚举</td>
+<td align="center">例如[abc]表示a,b,c其中任意一个字符；[gz]表示其中任意一个字符</td>
+</tr>
+<tr>
+<td align="center">表示范围：-</td>
+<td align="center">例如[a-f]表示a~f范围内的任意字符；[\\u0041-\\u0056]表示十六进制字符\u0041到\u0056范围内的任意字符</td>
+</tr>
+<tr>
+<td align="center">表示就否：^</td>
+<td align="center">例如[^abc]表示非a,b,c的任意字符；[^a-f]表示不是a~f范围内的任意字符</td>
+</tr>
+<tr>
+<td align="center">表示‘与’运算：&amp;&amp;</td>
+<td align="center">例如[a-z&amp;&amp;[def]]是a~z和[def]的交集，表示d,e,f中任意一个字符</td>
+</tr>
+<tr>
+<td align="center">表示‘并’运算</td>
+<td align="center">并运算与前面的枚举类似。例如[a-d[m-p]]表示[a-dm-p]</td>
+</tr>
+</tbody></table>
+<p>正则表达式还支持圆括号，用于将多个表达式组成一个子表达式，圆括号中可以使用或运算符<code>|</code>。例如，正则表达式“((public)|(protected)|(private))”用于匹配 Java 的三个访问控制符其中之一。</p>
+<p>除此之外，Java 正则表达式还支持如下表所示的几个边界匹配符。</p>
+<table>
+<thead>
+<tr>
+<th align="center">边界匹配符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">^</td>
+<td align="center">行的开头</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center">行的结尾</td>
+</tr>
+<tr>
+<td align="center">\b</td>
+<td align="center">单词的边界</td>
+</tr>
+<tr>
+<td align="center">\B</td>
+<td align="center">非单词的边界</td>
+</tr>
+<tr>
+<td align="center">\A</td>
+<td align="center">输入的开头</td>
+</tr>
+<tr>
+<td align="center">\G</td>
+<td align="center">前一个匹配的结尾</td>
+</tr>
+<tr>
+<td align="center">\Z</td>
+<td align="center">输入的结尾，仅用于最后的结束符</td>
+</tr>
+<tr>
+<td align="center">\z</td>
+<td align="center">输入的结尾</td>
+</tr>
+</tbody></table>
+<p>前面例子中需要建立一个匹配 000-000-0000 形式的电话号码时，使用了 \d\d\d-\d\d\d-\d\d\d\d 正则表达式，这看起来比较烦琐。实际上，正则表达式还提供了数量标识符，正则表达式支持的数量标识符有如下几种模式。</p>
+<ul>
+<li>Greedy（贪婪模式）：**<em>数量表示符默认采用贪婪模式**</em>，除非另有表示。贪婪模式的表达式会一直匹配下去，直到无法匹配为止。如果你发现表达式匹配的结果与预期的不符，很有可能是因为你以为表达式只会匹配前面几个字符，而实际上它是贪婪模式，所以会一直匹配下去。</li>
+<li>Reluctant（勉强模式）：用问号后缀（?）表示，它只会匹配最少的字符。也称为最小匹配模式。</li>
+<li>Possessive（占有模式）：用加号后缀（+）表示，目前只有 Java 支持占有模式，通常比较少用。</li>
+</ul>
+<p>三种模式的数量表示符如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th align="center">贪婪模式</th>
+<th align="center">勉强模式</th>
+<th align="center">占用模式</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">X?</td>
+<td align="center">X??</td>
+<td align="center">X?+</td>
+<td align="center">X表达式出现零次或一次</td>
+</tr>
+<tr>
+<td align="center">X*</td>
+<td align="center">X*?</td>
+<td align="center">X*+</td>
+<td align="center">X表达式出现零次或多次</td>
+</tr>
+<tr>
+<td align="center">X+</td>
+<td align="center">X+?</td>
+<td align="center">X++</td>
+<td align="center">X表达式出现一次或多次</td>
+</tr>
+<tr>
+<td align="center">X{n}</td>
+<td align="center">X{n}?</td>
+<td align="center">X{n}+</td>
+<td align="center">X表达式出现n次</td>
+</tr>
+<tr>
+<td align="center">X{n,}</td>
+<td align="center">X{n,}?</td>
+<td align="center">X{n,}+</td>
+<td align="center">X表达式最少出现n次</td>
+</tr>
+<tr>
+<td align="center">X{n,m}</td>
+<td align="center">X{n,m}?</td>
+<td align="center">X{n,m}+</td>
+<td align="center">X表达式最少出现n次最多出现m次</td>
+</tr>
+</tbody></table>
+<p>下面的代码是关于贪婪模式和勉强模式的对比：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str=<span class="string">&quot;hello,world!&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//贪婪模式下的正则表达式</span></span><br><span class="line">        System.out.println(str.replaceFirst(<span class="string">&quot;\\w*&quot;</span>,<span class="string">&quot;#&quot;</span>));   <span class="comment">//输出  #,world!</span></span><br><span class="line">        <span class="comment">//  &quot;\\w+&quot;  两个斜杠是因为Java中\斜杠也需要转义</span></span><br><span class="line">        <span class="comment">//勉强模式的正则表达式</span></span><br><span class="line">        System.out.println(str.replaceFirst(<span class="string">&quot;\\w*?&quot;</span>,<span class="string">&quot;#&quot;</span>));   <span class="comment">//输出  #hello,world!</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+       -->
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaIO java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JavaAPI 正则表达式</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -216,17 +914,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/02/27/Java%E5%B8%B8%E7%94%A8API/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/02/25/JavaIO/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaIO</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -249,9 +1034,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
