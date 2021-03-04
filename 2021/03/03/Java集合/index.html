@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Category: 其他 | XiaoBendy</title>
+  <title>Java集合 | XiaoBendy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XiaoBendy">
-<meta property="og:url" content="http://example.com/categories/%E5%85%B6%E4%BB%96/index.html">
+  <meta name="description" content="LinkedList类LinkedList与ArrayList不同，LinkedList是方便添加或删除的List。实际开发中对一个集合元素的添加和删除经常会涉及到首尾的操作。  LinkedList的特点是添加和删除块，但是查询慢。这是因为LinkedList是链表在添加和删除元素时，只需要修改上一个节点记录的地址值即可；而对于查询则需要遍历到要查询的元素为止。 ArrayList的特点是查询快">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java集合">
+<meta property="og:url" content="http://example.com/2021/03/03/Java%E9%9B%86%E5%90%88/index.html">
 <meta property="og:site_name" content="XiaoBendy">
+<meta property="og:description" content="LinkedList类LinkedList与ArrayList不同，LinkedList是方便添加或删除的List。实际开发中对一个集合元素的添加和删除经常会涉及到首尾的操作。  LinkedList的特点是添加和删除块，但是查询慢。这是因为LinkedList是链表在添加和删除元素时，只需要修改上一个节点记录的地址值即可；而对于查询则需要遍历到要查询的元素为止。 ArrayList的特点是查询快">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/03/03/Java%E9%9B%86%E5%90%88/image.png">
+<meta property="article:published_time" content="2021-03-03T14:37:30.000Z">
+<meta property="article:modified_time" content="2021-03-04T06:42:45.713Z">
 <meta property="article:author" content="XiaoBendy">
+<meta property="article:tag" content="Java基础 集合 HashCode">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/03/Java%E9%9B%86%E5%90%88/image.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoBendy" type="application/atom+xml">
   
@@ -162,71 +169,315 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java集合" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/21/My-First-Blog/" class="archive-article-date">
-  	<time datetime="2021-02-21T12:22:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/21/My-First-Blog/">My First Blog</a>
+    <h1 class="article-title" itemprop="name">
+      Java集合
     </h1>
   
 
-        <div class="article-info info-on-right">
+        
+        <a href="/2021/03/03/Java%E9%9B%86%E5%90%88/" class="archive-article-date">
+  	<time datetime="2021-03-03T14:37:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
           
+            <h1 id="LinkedList类"><a href="#LinkedList类" class="headerlink" title="LinkedList类"></a>LinkedList类</h1><p>LinkedList与ArrayList不同，LinkedList是方便添加或删除的List。实际开发中对一个集合元素的添加和删除经常会涉及到首尾的操作。</p>
+<ul>
+<li>LinkedList的特点是添加和删除块，但是查询慢。这是因为LinkedList是链表在添加和删除元素时，只需要修改上一个节点记录的地址值即可；而对于查询则需要遍历到要查询的元素为止。</li>
+<li>ArrayList的特点是查询快，添加和删除慢。查询快是由于数组的索引支持，所以可以通过直接计算出元素的地址值，因此可以直接通过元素的地址值获取指定的元素；添加和删除慢是因为ArrayList在添加和删除元素时，在底层会先创建一个新数组，先需要堆数组原有的数组进行拷贝，其次在末尾进行添加或者删除元素。</li>
+</ul>
+<p>LinkedList提供了大量首尾操作：</p>
+<p>public void addFirst(E e);</p>
+<p>public void addLast(E e);</p>
+<p>public E getFirst();</p>
+<p>public E getLast();</p>
+<p>代码实例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedListDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;String&gt; list=<span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//添加元素</span></span><br><span class="line">        list.add(<span class="string">&quot;Jack&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Rose&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Trump&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取元素</span></span><br><span class="line">        String name=list.get(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;第二个元素：&quot;</span>+name);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//返回集合的迭代器</span></span><br><span class="line">        Iterator&lt;String&gt; it=list.iterator();</span><br><span class="line">        <span class="comment">//利用迭代器便利</span></span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">            String thisName=it.next();</span><br><span class="line">            System.out.println(thisName);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用增强for循环便利</span></span><br><span class="line">        <span class="keyword">for</span>(String thisName:list)&#123;</span><br><span class="line">            System.out.println(thisName);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(list);</span><br><span class="line">        <span class="comment">//删除</span></span><br><span class="line">        list.remove();   <span class="comment">//默认删除第一个元素   也可以通过索引删除指定元素或者删除首尾元素</span></span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">第二个元素：Rose</span><br><span class="line">Jack</span><br><span class="line">Rose</span><br><span class="line">Trump</span><br><span class="line">------------</span><br><span class="line">Jack</span><br><span class="line">Rose</span><br><span class="line">Trump</span><br><span class="line">[Jack, Rose, Trump]</span><br><span class="line">[Rose, Trump]</span><br></pre></td></tr></table></figure>
+<h2 id="LinkedList可支持栈结构"><a href="#LinkedList可支持栈结构" class="headerlink" title="LinkedList可支持栈结构"></a>LinkedList可支持栈结构</h2><p><strong><em>当然Java也提供专门用于栈结构的类Stack</em></strong></p>
+<p>LinkedList对于栈结构提供了如下的方法：</p>
+<blockquote>
+<p>push 压栈</p>
+<p>pop 弹栈</p>
+<p>peek 查询出即将要出栈的元素（栈顶元素），检查有没有要弹出的元素,当栈为空时就返回空值。</p>
+</blockquote>
+<p>代码实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;String&gt; stack = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">        stack.push(<span class="string">&quot;Jack&quot;</span>);</span><br><span class="line">        stack.push(<span class="string">&quot;Rose&quot;</span>);</span><br><span class="line">        stack.push(<span class="string">&quot;Lisa&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(stack);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取一个元素 此时，由于是栈结构 所以获取的是最后压栈的元素</span></span><br><span class="line">        String popName=stack.pop(); <span class="comment">//这里获取的是Lisa元素</span></span><br><span class="line">        System.out.println(popName);</span><br><span class="line"></span><br><span class="line">        System.out.println(stack);</span><br><span class="line"></span><br><span class="line">        String peekName=stack.peek();</span><br><span class="line">        System.out.println(peekName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//peek查看元素不会减少元素</span></span><br><span class="line">        System.out.println(stack);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Lisa, Rose, Jack]</span><br><span class="line">Lisa</span><br><span class="line">[Rose, Jack]</span><br><span class="line">Rose</span><br><span class="line">[Rose, Jack]</span><br></pre></td></tr></table></figure>
+<p><strong>注意这里输出栈时，是从栈顶到栈底依次输出</strong></p>
+<h2 id="LinkedList可支持队列结构"><a href="#LinkedList可支持队列结构" class="headerlink" title="LinkedList可支持队列结构"></a>LinkedList可支持队列结构</h2><p>LinkedList为支持队列元素提供了如下的方法：</p>
+<blockquote>
+<p>offer 加入队列</p>
+<p>poll 离开队列</p>
+<p>peek 查询出即将要离开队列的元素（即队首元素），可检查有没有要离开队列的元素,当队列为空时返回空值null</p>
+</blockquote>
+<p>代码实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;String&gt; queue = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">        queue.offer(<span class="string">&quot;Jack&quot;</span>);</span><br><span class="line">        queue.offer(<span class="string">&quot;Rose&quot;</span>);</span><br><span class="line">        queue.offer(<span class="string">&quot;Lisa&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(queue);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取队首元素</span></span><br><span class="line">        String pollName=queue.poll();</span><br><span class="line">        System.out.println(pollName);</span><br><span class="line"></span><br><span class="line">        System.out.println(queue);</span><br><span class="line"></span><br><span class="line">        String peekName=queue.peek();</span><br><span class="line">        System.out.println(peekName);</span><br><span class="line"></span><br><span class="line">        System.out.println(queue);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//清空队列</span></span><br><span class="line">        queue.remove();</span><br><span class="line">        queue.remove();</span><br><span class="line">        <span class="comment">//检查是否还有要离开的元素</span></span><br><span class="line">        String name=queue.peek();</span><br><span class="line">        System.out.println(name);   <span class="comment">//队列为空时  peek()返回的是空值null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Jack, Rose, Lisa]</span><br><span class="line">Jack</span><br><span class="line">[Rose, Lisa]</span><br><span class="line">Rose</span><br><span class="line">[Rose, Lisa]</span><br><span class="line"><span class="keyword">null</span></span><br></pre></td></tr></table></figure>
+<h1 id="HashSet类"><a href="#HashSet类" class="headerlink" title="HashSet类"></a>HashSet类</h1><p>HashSet是Set接口的子类，不包括重复相同的元素，*<strong>并且是无序的**<em>，且提供索引，所以不能通过索引获取元素，</em></strong>只能通过迭代器访问数据***</p>
+<p>HashSet下还有子类LinkedHashSet,<strong>是可预测迭代顺序</strong>的Set的集合。</p>
+<p>代码实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSetDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HashSet&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        set.add(<span class="string">&quot;Jack&quot;</span>);</span><br><span class="line">        set.add(<span class="string">&quot;Lisa&quot;</span>);</span><br><span class="line">        set.add(<span class="string">&quot;Rose&quot;</span>);</span><br><span class="line">        set.add(<span class="string">&quot;Rose&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(set);   <span class="comment">//输出是无序的</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取元素，只能迭代器</span></span><br><span class="line">        Iterator&lt;String&gt; it = set.iterator();</span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">            String name = it.next();</span><br><span class="line">            System.out.println(name);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;============&quot;</span>);</span><br><span class="line">        <span class="comment">//使用增强for遍历set集合</span></span><br><span class="line">        <span class="keyword">for</span>(String name:set)&#123;</span><br><span class="line">            System.out.println(name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Rose, Jack, Lisa]</span><br><span class="line">Rose</span><br><span class="line">Jack</span><br><span class="line">Lisa</span><br><span class="line">============</span><br><span class="line">Rose</span><br><span class="line">Jack</span><br><span class="line">Lisa</span><br></pre></td></tr></table></figure>
+<p><strong><em>注意这里输出结果是无序的，还要记住不能通过索引来访问只能使用迭代器来访问数据</em></strong></p>
+<p>HashSet的简单应用：使用HashSet求一个字符串中一共有几个不重复的字母，区分大小写,比如a，A是算两个字符</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSetDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s;</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个字符串：&quot;</span>);</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        s=scanner.nextLine();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建HashSet集合</span></span><br><span class="line">        HashSet&lt;Character&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//将字符串拆分成一个个单个字符</span></span><br><span class="line">        <span class="keyword">char</span>[] chars = s.toCharArray();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> ch:chars)&#123;</span><br><span class="line">            <span class="comment">//判断是否是字母</span></span><br><span class="line">            <span class="keyword">if</span>((ch&gt;=<span class="string">&#x27;a&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;z&#x27;</span>)||(ch&gt;=<span class="string">&#x27;A&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;Z&#x27;</span>))&#123;</span><br><span class="line">                set.add(ch);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;在该字符串中总共有&quot;</span>+set.size()+<span class="string">&quot;个不重复的字母。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ArrayList中使用contains方法判断是否有重复元素"><a href="#ArrayList中使用contains方法判断是否有重复元素" class="headerlink" title="ArrayList中使用contains方法判断是否有重复元素"></a>ArrayList中使用contains方法判断是否有重复元素</h2><p>自定义类型Person是Object类的子类，所以Person具备equals方法，而contains方法会调用equals方法，依次与集合当中已经存在的Person对象比较。   当Person类没有重写equals方法时，直接使用Object类继承过来的equals方法，而该方法比较的是对象的地址值。当Person类重写equals方法后，就可以将比较规则由比较地址值改为比较属性值。</p>
+<p>下面代码是没有重写equals的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList_contains</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;Person&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Person jack = <span class="keyword">new</span> Person(<span class="string">&quot;Jack&quot;</span>, <span class="string">&quot;18&quot;</span>);</span><br><span class="line">        Person rose = <span class="keyword">new</span> Person(<span class="string">&quot;Rose&quot;</span>, <span class="string">&quot;22&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Person p = <span class="keyword">new</span> Person(<span class="string">&quot;Jack&quot;</span>,<span class="string">&quot;18&quot;</span>);</span><br><span class="line"></span><br><span class="line">        list.add(jack);</span><br><span class="line">        list.add(rose);</span><br><span class="line">	<span class="comment">//这里没有重写equals方法 所以比较的是地址值 因此返回的是False  若重写equals方法比较的是name和age的成员变量则返回true</span></span><br><span class="line">        System.out.println(list.contains(p));  </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面代码是Person类中重写equals方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        Person p=(Person)obj;</span><br><span class="line">        <span class="keyword">if</span>(p.getName()==getName()&amp;&amp;p.getAge()==getAge())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>重写之后在运行上面代码会发现返回的结果是true。</p>
+<h2 id="HashSet判断元素唯一性准则"><a href="#HashSet判断元素唯一性准则" class="headerlink" title="HashSet判断元素唯一性准则"></a><strong>HashSet判断元素唯一性准则</strong></h2><p>Set集合不能添加重复元素，那其添加方法在添加是判断是否有重复元素，那其判断规则是怎么样的呢？？？</p>
+<p>HashSet集合由于是无序的，其判断唯一的依据是元素类型的hashCode与equals方法返回的结果。</p>
+<p>规则如下：</p>
+<p>把对象加入到HashSet时，它会先使用对象的hashCode值来判断对象加入的位置；</p>
+<p>如果此位置上没有其他对象存在，则判断元素不同，可存入新对象。</p>
+<p>如果此位置有对象存在，先判断新元素与集合内已经有的旧元素的HashCode值：如果不同，判断为是不同的对象，可存入新对象；如果相同，在判断equals比较结果，返回true相同，则不可存入新对象；返回是的false则仍然不同，即可存入新对象。</p>
+<p>所以，使用HashSet存储自定义类型，如果没有重写该类的hashCode与equals方法，则判断重复时，使用的地址值，如果想通过内容比较元素是否相同，则需要重写该类的hashCode与equals方法。</p>
+<p>hashCode方法重写规则：<br>    将对象的各个属性值的hashCode相加即是整个对象的HashCode值。<br>    如果是基本类型，类似int，则直接返回int值就是该属性的hash值；<br>    如果是引用类型，类似String，就调用该成员变量的hashCode方法返回该成员变量的hash值。</p>
+<p>这样可以根据对象的内容返回hashCode值，从而可以根据hashCode判断元素是否唯一。<br>但是由于一些“碰巧的”情况下，可能出现内容不同但hashCode相同的情况，为了避免这些情况，我们要加入一些干扰系数。<br>可是加入干扰系数后，仍会出现一些“碰巧”的情况，所以我们还要进行equals的二次判断。</p>
+<p>重写hashCode方法代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> thisHashCode</span><br><span class="line">    thisHashCode+=name.hashCode()*<span class="number">17</span>;</span><br><span class="line">    thisHashCode+=age.hashCode</span><br><span class="line">    <span class="keyword">return</span> thisHashCo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Java集合框架之总结-amp-体系图"><a href="#Java集合框架之总结-amp-体系图" class="headerlink" title="Java集合框架之总结&amp;体系图"></a>Java集合框架之总结&amp;体系图</h1><h2 id="单列集合体系图"><a href="#单列集合体系图" class="headerlink" title="单列集合体系图"></a>单列集合体系图</h2><p><img src="/2021/03/03/Java%E9%9B%86%E5%90%88/image.png" alt="集合框架体系图"></p>
+<p>Collection：所有单列集合的直接或间接接口，其指定了所有集合应该具备的基本功能。<br>List：元素可重复，有序，带索引。<br>Set：元素不可重复，无序，没有索引。<br>ArrayList：底层是数组结构，ArrayList的出现代替了Vector，增删慢，查看快。<br>LinkedList：底层是链表结构，同事对元素的增删操作效率高。<br>HashSet：底层是哈希表结构。在不重复的基础上无序。<br>LinkedHashSet：底层是哈希表结构结合链表结构，在不重复的基础上可预测迭代顺序。</p>
+<h2 id="集合的常见使用"><a href="#集合的常见使用" class="headerlink" title="集合的常见使用"></a>集合的常见使用</h2><p>在设计集合的使用时，经常定义对应的接口类型。在使用时，通过多态的方式给接口变量赋值，用于提高程序扩展性。</p>
+<p>如：定义方法public void method(List list){}，在调用方法是依据需求，传入ArrayList或LinkedList的对象。</p>
+
+          
+        
+      <!-- 
+        <h1 id="LinkedList类"><a href="#LinkedList类" class="headerlink" title="LinkedList类"></a>LinkedList类</h1><p>LinkedList与ArrayList不同，LinkedList是方便添加或删除的List。实际开发中对一个集合元素的添加和删除经常会涉及到首尾的操作。</p>
+<ul>
+<li>LinkedList的特点是添加和删除块，但是查询慢。这是因为LinkedList是链表在添加和删除元素时，只需要修改上一个节点记录的地址值即可；而对于查询则需要遍历到要查询的元素为止。</li>
+<li>ArrayList的特点是查询快，添加和删除慢。查询快是由于数组的索引支持，所以可以通过直接计算出元素的地址值，因此可以直接通过元素的地址值获取指定的元素；添加和删除慢是因为ArrayList在添加和删除元素时，在底层会先创建一个新数组，先需要堆数组原有的数组进行拷贝，其次在末尾进行添加或者删除元素。</li>
+</ul>
+<p>LinkedList提供了大量首尾操作：</p>
+<p>public void addFirst(E e);</p>
+<p>public void addLast(E e);</p>
+<p>public E getFirst();</p>
+<p>public E getLast();</p>
+<p>代码实例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedListDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;String&gt; list=<span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//添加元素</span></span><br><span class="line">        list.add(<span class="string">&quot;Jack&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Rose&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Trump&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取元素</span></span><br><span class="line">        String name=list.get(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;第二个元素：&quot;</span>+name);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//返回集合的迭代器</span></span><br><span class="line">        Iterator&lt;String&gt; it=list.iterator();</span><br><span class="line">        <span class="comment">//利用迭代器便利</span></span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">            String thisName=it.next();</span><br><span class="line">            System.out.println(thisName);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用增强for循环便利</span></span><br><span class="line">        <span class="keyword">for</span>(String thisName:list)&#123;</span><br><span class="line">            System.out.println(thisName);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(list);</span><br><span class="line">        <span class="comment">//删除</span></span><br><span class="line">        list.remove();   <span class="comment">//默认删除第一个元素   也可以通过索引删除指定元素或者删除首尾元素</span></span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">第二个元素：Rose</span><br><span class="line">Jack</span><br><span class="line">Rose</span><br><span class="line">Trump</span><br><span class="line">------------</span><br><span class="line">Jack</span><br><span class="line">Rose</span><br><span class="line">Trump</span><br><span class="line">[Jack, Rose, Trump]</span><br><span class="line">[Rose, Trump]</span><br></pre></td></tr></table></figure>
+<h2 id="LinkedList可支持栈结构"><a href="#LinkedList可支持栈结构" class="headerlink" title="LinkedList可支持栈结构"></a>LinkedList可支持栈结构</h2><p><strong><em>当然Java也提供专门用于栈结构的类Stack</em></strong></p>
+<p>LinkedList对于栈结构提供了如下的方法：</p>
+<blockquote>
+<p>push 压栈</p>
+<p>pop 弹栈</p>
+<p>peek 查询出即将要出栈的元素（栈顶元素），检查有没有要弹出的元素,当栈为空时就返回空值。</p>
+</blockquote>
+<p>代码实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;String&gt; stack = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">        stack.push(<span class="string">&quot;Jack&quot;</span>);</span><br><span class="line">        stack.push(<span class="string">&quot;Rose&quot;</span>);</span><br><span class="line">        stack.push(<span class="string">&quot;Lisa&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(stack);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取一个元素 此时，由于是栈结构 所以获取的是最后压栈的元素</span></span><br><span class="line">        String popName=stack.pop(); <span class="comment">//这里获取的是Lisa元素</span></span><br><span class="line">        System.out.println(popName);</span><br><span class="line"></span><br><span class="line">        System.out.println(stack);</span><br><span class="line"></span><br><span class="line">        String peekName=stack.peek();</span><br><span class="line">        System.out.println(peekName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//peek查看元素不会减少元素</span></span><br><span class="line">        System.out.println(stack);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Lisa, Rose, Jack]</span><br><span class="line">Lisa</span><br><span class="line">[Rose, Jack]</span><br><span class="line">Rose</span><br><span class="line">[Rose, Jack]</span><br></pre></td></tr></table></figure>
+<p><strong>注意这里输出栈时，是从栈顶到栈底依次输出</strong></p>
+<h2 id="LinkedList可支持队列结构"><a href="#LinkedList可支持队列结构" class="headerlink" title="LinkedList可支持队列结构"></a>LinkedList可支持队列结构</h2><p>LinkedList为支持队列元素提供了如下的方法：</p>
+<blockquote>
+<p>offer 加入队列</p>
+<p>poll 离开队列</p>
+<p>peek 查询出即将要离开队列的元素（即队首元素），可检查有没有要离开队列的元素,当队列为空时返回空值null</p>
+</blockquote>
+<p>代码实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;String&gt; queue = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">        queue.offer(<span class="string">&quot;Jack&quot;</span>);</span><br><span class="line">        queue.offer(<span class="string">&quot;Rose&quot;</span>);</span><br><span class="line">        queue.offer(<span class="string">&quot;Lisa&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(queue);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取队首元素</span></span><br><span class="line">        String pollName=queue.poll();</span><br><span class="line">        System.out.println(pollName);</span><br><span class="line"></span><br><span class="line">        System.out.println(queue);</span><br><span class="line"></span><br><span class="line">        String peekName=queue.peek();</span><br><span class="line">        System.out.println(peekName);</span><br><span class="line"></span><br><span class="line">        System.out.println(queue);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//清空队列</span></span><br><span class="line">        queue.remove();</span><br><span class="line">        queue.remove();</span><br><span class="line">        <span class="comment">//检查是否还有要离开的元素</span></span><br><span class="line">        String name=queue.peek();</span><br><span class="line">        System.out.println(name);   <span class="comment">//队列为空时  peek()返回的是空值null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Jack, Rose, Lisa]</span><br><span class="line">Jack</span><br><span class="line">[Rose, Lisa]</span><br><span class="line">Rose</span><br><span class="line">[Rose, Lisa]</span><br><span class="line"><span class="keyword">null</span></span><br></pre></td></tr></table></figure>
+<h1 id="HashSet类"><a href="#HashSet类" class="headerlink" title="HashSet类"></a>HashSet类</h1><p>HashSet是Set接口的子类，不包括重复相同的元素，*<strong>并且是无序的**<em>，且提供索引，所以不能通过索引获取元素，</em></strong>只能通过迭代器访问数据***</p>
+<p>HashSet下还有子类LinkedHashSet,<strong>是可预测迭代顺序</strong>的Set的集合。</p>
+<p>代码实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSetDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HashSet&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        set.add(<span class="string">&quot;Jack&quot;</span>);</span><br><span class="line">        set.add(<span class="string">&quot;Lisa&quot;</span>);</span><br><span class="line">        set.add(<span class="string">&quot;Rose&quot;</span>);</span><br><span class="line">        set.add(<span class="string">&quot;Rose&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(set);   <span class="comment">//输出是无序的</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取元素，只能迭代器</span></span><br><span class="line">        Iterator&lt;String&gt; it = set.iterator();</span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">            String name = it.next();</span><br><span class="line">            System.out.println(name);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;============&quot;</span>);</span><br><span class="line">        <span class="comment">//使用增强for遍历set集合</span></span><br><span class="line">        <span class="keyword">for</span>(String name:set)&#123;</span><br><span class="line">            System.out.println(name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Rose, Jack, Lisa]</span><br><span class="line">Rose</span><br><span class="line">Jack</span><br><span class="line">Lisa</span><br><span class="line">============</span><br><span class="line">Rose</span><br><span class="line">Jack</span><br><span class="line">Lisa</span><br></pre></td></tr></table></figure>
+<p><strong><em>注意这里输出结果是无序的，还要记住不能通过索引来访问只能使用迭代器来访问数据</em></strong></p>
+<p>HashSet的简单应用：使用HashSet求一个字符串中一共有几个不重复的字母，区分大小写,比如a，A是算两个字符</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSetDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s;</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个字符串：&quot;</span>);</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        s=scanner.nextLine();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建HashSet集合</span></span><br><span class="line">        HashSet&lt;Character&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//将字符串拆分成一个个单个字符</span></span><br><span class="line">        <span class="keyword">char</span>[] chars = s.toCharArray();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> ch:chars)&#123;</span><br><span class="line">            <span class="comment">//判断是否是字母</span></span><br><span class="line">            <span class="keyword">if</span>((ch&gt;=<span class="string">&#x27;a&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;z&#x27;</span>)||(ch&gt;=<span class="string">&#x27;A&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;Z&#x27;</span>))&#123;</span><br><span class="line">                set.add(ch);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;在该字符串中总共有&quot;</span>+set.size()+<span class="string">&quot;个不重复的字母。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="ArrayList中使用contains方法判断是否有重复元素"><a href="#ArrayList中使用contains方法判断是否有重复元素" class="headerlink" title="ArrayList中使用contains方法判断是否有重复元素"></a>ArrayList中使用contains方法判断是否有重复元素</h2><p>自定义类型Person是Object类的子类，所以Person具备equals方法，而contains方法会调用equals方法，依次与集合当中已经存在的Person对象比较。   当Person类没有重写equals方法时，直接使用Object类继承过来的equals方法，而该方法比较的是对象的地址值。当Person类重写equals方法后，就可以将比较规则由比较地址值改为比较属性值。</p>
+<p>下面代码是没有重写equals的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList_contains</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;Person&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Person jack = <span class="keyword">new</span> Person(<span class="string">&quot;Jack&quot;</span>, <span class="string">&quot;18&quot;</span>);</span><br><span class="line">        Person rose = <span class="keyword">new</span> Person(<span class="string">&quot;Rose&quot;</span>, <span class="string">&quot;22&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Person p = <span class="keyword">new</span> Person(<span class="string">&quot;Jack&quot;</span>,<span class="string">&quot;18&quot;</span>);</span><br><span class="line"></span><br><span class="line">        list.add(jack);</span><br><span class="line">        list.add(rose);</span><br><span class="line">	<span class="comment">//这里没有重写equals方法 所以比较的是地址值 因此返回的是False  若重写equals方法比较的是name和age的成员变量则返回true</span></span><br><span class="line">        System.out.println(list.contains(p));  </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面代码是Person类中重写equals方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        Person p=(Person)obj;</span><br><span class="line">        <span class="keyword">if</span>(p.getName()==getName()&amp;&amp;p.getAge()==getAge())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>重写之后在运行上面代码会发现返回的结果是true。</p>
+<h2 id="HashSet判断元素唯一性准则"><a href="#HashSet判断元素唯一性准则" class="headerlink" title="HashSet判断元素唯一性准则"></a><strong>HashSet判断元素唯一性准则</strong></h2><p>Set集合不能添加重复元素，那其添加方法在添加是判断是否有重复元素，那其判断规则是怎么样的呢？？？</p>
+<p>HashSet集合由于是无序的，其判断唯一的依据是元素类型的hashCode与equals方法返回的结果。</p>
+<p>规则如下：</p>
+<p>把对象加入到HashSet时，它会先使用对象的hashCode值来判断对象加入的位置；</p>
+<p>如果此位置上没有其他对象存在，则判断元素不同，可存入新对象。</p>
+<p>如果此位置有对象存在，先判断新元素与集合内已经有的旧元素的HashCode值：如果不同，判断为是不同的对象，可存入新对象；如果相同，在判断equals比较结果，返回true相同，则不可存入新对象；返回是的false则仍然不同，即可存入新对象。</p>
+<p>所以，使用HashSet存储自定义类型，如果没有重写该类的hashCode与equals方法，则判断重复时，使用的地址值，如果想通过内容比较元素是否相同，则需要重写该类的hashCode与equals方法。</p>
+<p>hashCode方法重写规则：<br>    将对象的各个属性值的hashCode相加即是整个对象的HashCode值。<br>    如果是基本类型，类似int，则直接返回int值就是该属性的hash值；<br>    如果是引用类型，类似String，就调用该成员变量的hashCode方法返回该成员变量的hash值。</p>
+<p>这样可以根据对象的内容返回hashCode值，从而可以根据hashCode判断元素是否唯一。<br>但是由于一些“碰巧的”情况下，可能出现内容不同但hashCode相同的情况，为了避免这些情况，我们要加入一些干扰系数。<br>可是加入干扰系数后，仍会出现一些“碰巧”的情况，所以我们还要进行equals的二次判断。</p>
+<p>重写hashCode方法代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> thisHashCode</span><br><span class="line">    thisHashCode+=name.hashCode()*<span class="number">17</span>;</span><br><span class="line">    thisHashCode+=age.hashCode</span><br><span class="line">    <span class="keyword">return</span> thisHashCo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Java集合框架之总结-amp-体系图"><a href="#Java集合框架之总结-amp-体系图" class="headerlink" title="Java集合框架之总结&amp;体系图"></a>Java集合框架之总结&amp;体系图</h1><h2 id="单列集合体系图"><a href="#单列集合体系图" class="headerlink" title="单列集合体系图"></a>单列集合体系图</h2><p><img src="/2021/03/03/Java%E9%9B%86%E5%90%88/image.png" alt="集合框架体系图"></p>
+<p>Collection：所有单列集合的直接或间接接口，其指定了所有集合应该具备的基本功能。<br>List：元素可重复，有序，带索引。<br>Set：元素不可重复，无序，没有索引。<br>ArrayList：底层是数组结构，ArrayList的出现代替了Vector，增删慢，查看快。<br>LinkedList：底层是链表结构，同事对元素的增删操作效率高。<br>HashSet：底层是哈希表结构。在不重复的基础上无序。<br>LinkedHashSet：底层是哈希表结构结合链表结构，在不重复的基础上可预测迭代顺序。</p>
+<h2 id="集合的常见使用"><a href="#集合的常见使用" class="headerlink" title="集合的常见使用"></a>集合的常见使用</h2><p>在设计集合的使用时，经常定义对应的接口类型。在使用时，通过多态的方式给接口变量赋值，用于提高程序扩展性。</p>
+<p>如：定义方法public void method(List list){}，在调用方法是依据需求，传入ArrayList或LinkedList的对象。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+       -->
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其它</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java基础 集合 HashCode</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/其他//" class="article-tag-list-link color3">其他</a>
+        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/03/Java%E9%9B%86%E5%90%88/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/02/27/Java%E5%B8%B8%E7%94%A8API/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java常用API</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -249,10 +500,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
@@ -323,10 +574,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">其它</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -336,6 +583,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JavaAPI 正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java基础 集合 HashCode</a>
               </li>
             
             <div class="clearfix"></div>
