@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Java集合2 | XiaoBendy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="双列集合MapMap概述双列集合是每个元素都有建与值两个部分组成和集合，记录的是键值对对应关系。即通过键可以找到值。 常用子类：    最常用的双列集合是Map下的子类HashMap。    Hashtable也是Map集合的一种已被HashMap取代。Map集合的特点，如是否可以重复，是否有序仅作用在键上，如**HashMap集合的键不可重复，只可以重复** Map基本使用A：Map（HashM">
+  <meta name="description" content="双列集合MapMap概述双列集合是每个元素都有建与值两个部分组成和集合，记录的是键值对对应关系。即通过键可以找到值。 常用子类：    最常用的双列集合是Map下的子类HashMap。    Hashtable也是Map集合的一种已被HashMap取代。Map集合的特点，如是否可以重复，是否有序仅作用在键上，如**HashMap集合的键不可重复，只可以重复**">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java集合2">
 <meta property="og:url" content="http://example.com/2021/03/05/Java%E9%9B%86%E5%90%882/index.html">
 <meta property="og:site_name" content="XiaoBendy">
-<meta property="og:description" content="双列集合MapMap概述双列集合是每个元素都有建与值两个部分组成和集合，记录的是键值对对应关系。即通过键可以找到值。 常用子类：    最常用的双列集合是Map下的子类HashMap。    Hashtable也是Map集合的一种已被HashMap取代。Map集合的特点，如是否可以重复，是否有序仅作用在键上，如**HashMap集合的键不可重复，只可以重复** Map基本使用A：Map（HashM">
+<meta property="og:description" content="双列集合MapMap概述双列集合是每个元素都有建与值两个部分组成和集合，记录的是键值对对应关系。即通过键可以找到值。 常用子类：    最常用的双列集合是Map下的子类HashMap。    Hashtable也是Map集合的一种已被HashMap取代。Map集合的特点，如是否可以重复，是否有序仅作用在键上，如**HashMap集合的键不可重复，只可以重复**">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-05T06:22:16.000Z">
-<meta property="article:modified_time" content="2021-03-05T14:35:15.359Z">
+<meta property="article:modified_time" content="2021-03-07T14:14:28.353Z">
 <meta property="article:author" content="XiaoBendy">
 <meta property="article:tag" content="Java基础 Map">
 <meta name="twitter:card" content="summary">
@@ -191,6 +191,8 @@
           
             <h1 id="双列集合Map"><a href="#双列集合Map" class="headerlink" title="双列集合Map"></a>双列集合Map</h1><h2 id="Map概述"><a href="#Map概述" class="headerlink" title="Map概述"></a>Map概述</h2><p>双列集合是每个元素都有建与值两个部分组成和集合，记录的是键值对对应关系。即通过键可以找到值。</p>
 <p>常用子类：<br>    最常用的双列集合是Map下的子类HashMap。<br>    Hashtable也是Map集合的一种已被HashMap取代。<br>Map集合的特点，如是否可以重复，是否有序仅作用在键上，如**<em>HashMap集合的键不可重复，只可以重复**</em></p>
+<a id="more"></a>
+
 <h2 id="Map基本使用"><a href="#Map基本使用" class="headerlink" title="Map基本使用"></a>Map基本使用</h2><p>A：Map（HashMap）的使用：创建对象时加入两个泛型。<br>        Map（K，V）   其中K是此映射所维持的键的类型；V是映射值的类型。<br>B：常用方法：<br>        public V put(K key,V value)        加入元素，则新值会覆盖掉旧值。<br>        public V get(Object key)            根据键找到值<br>        public Set&lt;K&gt; keySet()            返回所有键的集合<br>        public Collection&lt;K&gt; values()     返回所有值的集合 </p>
 <p>代码案例：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建双列集合对象</span></span><br><span class="line">        HashMap&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//向集合添加元素</span></span><br><span class="line">        map.put(<span class="string">&quot;及时雨&quot;</span>,<span class="string">&quot;宋江&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;玉麒麟&quot;</span>,<span class="string">&quot;卢俊义&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;智多新&quot;</span>,<span class="string">&quot;高俅&quot;</span>);</span><br><span class="line"></span><br><span class="line">        map.put(<span class="string">&quot;智多新&quot;</span>,<span class="string">&quot;吴用&quot;</span>);   <span class="comment">//这里新值会覆盖上面的旧值</span></span><br><span class="line"></span><br><span class="line">        System.out.println(map);</span><br><span class="line"></span><br><span class="line">        String name=map.get(<span class="string">&quot;智多新&quot;</span>);</span><br><span class="line">        System.out.println(name);</span><br><span class="line"></span><br><span class="line">        System.out.println(map.get(<span class="string">&quot;母夜叉&quot;</span>));</span><br><span class="line"></span><br><span class="line">        System.out.println(map.keySet());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -231,6 +233,8 @@
       <!-- 
         <h1 id="双列集合Map"><a href="#双列集合Map" class="headerlink" title="双列集合Map"></a>双列集合Map</h1><h2 id="Map概述"><a href="#Map概述" class="headerlink" title="Map概述"></a>Map概述</h2><p>双列集合是每个元素都有建与值两个部分组成和集合，记录的是键值对对应关系。即通过键可以找到值。</p>
 <p>常用子类：<br>    最常用的双列集合是Map下的子类HashMap。<br>    Hashtable也是Map集合的一种已被HashMap取代。<br>Map集合的特点，如是否可以重复，是否有序仅作用在键上，如**<em>HashMap集合的键不可重复，只可以重复**</em></p>
+<a id="more"></a>
+
 <h2 id="Map基本使用"><a href="#Map基本使用" class="headerlink" title="Map基本使用"></a>Map基本使用</h2><p>A：Map（HashMap）的使用：创建对象时加入两个泛型。<br>        Map（K，V）   其中K是此映射所维持的键的类型；V是映射值的类型。<br>B：常用方法：<br>        public V put(K key,V value)        加入元素，则新值会覆盖掉旧值。<br>        public V get(Object key)            根据键找到值<br>        public Set&lt;K&gt; keySet()            返回所有键的集合<br>        public Collection&lt;K&gt; values()     返回所有值的集合 </p>
 <p>代码案例：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建双列集合对象</span></span><br><span class="line">        HashMap&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//向集合添加元素</span></span><br><span class="line">        map.put(<span class="string">&quot;及时雨&quot;</span>,<span class="string">&quot;宋江&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;玉麒麟&quot;</span>,<span class="string">&quot;卢俊义&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;智多新&quot;</span>,<span class="string">&quot;高俅&quot;</span>);</span><br><span class="line"></span><br><span class="line">        map.put(<span class="string">&quot;智多新&quot;</span>,<span class="string">&quot;吴用&quot;</span>);   <span class="comment">//这里新值会覆盖上面的旧值</span></span><br><span class="line"></span><br><span class="line">        System.out.println(map);</span><br><span class="line"></span><br><span class="line">        String name=map.get(<span class="string">&quot;智多新&quot;</span>);</span><br><span class="line">        System.out.println(name);</span><br><span class="line"></span><br><span class="line">        System.out.println(map.get(<span class="string">&quot;母夜叉&quot;</span>));</span><br><span class="line"></span><br><span class="line">        System.out.println(map.keySet());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -521,11 +525,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">Java基础 JavaIO 字节流 乱码问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Java基础 JavaIO 字节流 乱码问题</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
